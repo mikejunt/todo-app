@@ -17,7 +17,10 @@ export class TodomgrService {
     let idx = this.todolist.findIndex(todo => todo["id"] === id);
     this.todolist.splice(idx,1)
   }
-  addtask() { console.log("This would add a task.") }
+  addtask(user, task) { 
+    this.todolist.push({user: `${user}`, name: `${task}`, id: this.nextid})
+    this.nextid++
+    console.log(this.todolist) }
 }
 
 
