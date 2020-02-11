@@ -10,7 +10,8 @@ export class TodosComponent implements OnInit {
   todolist: Array<object>
  
   constructor(private todomgr: TodomgrService) {this.todolist = [...this.todomgr.todolist] }
-  deltask() {console.log(this.todolist)}
+  removetask(id) {this.todomgr.deltask(id)}
+  newtask() {this.todomgr.addtask()}
   ngOnInit(): void {
   }
 
