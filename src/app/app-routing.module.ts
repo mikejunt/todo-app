@@ -7,7 +7,7 @@ import { TodosComponent } from './todos/todos.component';
 const routes: Routes = [
   {path: 'user/:username', component: UserComponent},
   {path: 'todos', component: TodosComponent},
-  {path: '**', component: UserComponent}];
+  {path: '**', component: TodosComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

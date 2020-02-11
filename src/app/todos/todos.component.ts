@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TodomgrService } from '../todomgr.service';
+import { Todo } from '../interfaces/todo.interface';
 
 @Component({
   selector: 'app-todos',
@@ -7,12 +8,11 @@ import { TodomgrService } from '../todomgr.service';
   styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent implements OnInit {
-  todolist: Array<object>
+  todolist: Array<Todo>
   user: string = ""
   name: string = ""
  
-  constructor(private todomgr: TodomgrService) {this.todolist = [...this.todomgr.todolist] }
-  removetask(id) {this.todomgr.deltask(id)}
+  constructor(private todomgr: TodomgrService) {this.todolist = todomgr.alltodos}
   newtask() {this.todomgr.addtask(this.user,this.name)}
   ngOnInit(): void {
   }
