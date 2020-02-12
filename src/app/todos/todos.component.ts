@@ -9,11 +9,13 @@ import { Todo } from '../interfaces/todo.interface';
 })
 export class TodosComponent implements OnInit {
   todolist: Array<Todo>
-  user: string = ""
-  name: string = ""
+  userinput: string = ""
+  nameinput: string = ""
+  marktarget: number
  
   constructor(private todomgr: TodomgrService) {this.todolist = todomgr.alltodos}
-  newtask() {this.todomgr.addtask(this.user,this.name)}
+  newtask() {this.todomgr.addtask(this.userinput,this.nameinput)}
+  completemark(val) {console.log(val)}
   ngOnInit(): void {
   }
 
