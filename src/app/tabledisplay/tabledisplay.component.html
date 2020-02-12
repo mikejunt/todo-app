@@ -6,6 +6,7 @@
     <tr *ngFor="let todo of todolist | searchfilter: searchtext; index as i">
         <td><a [routerLink]="['/user/'+todo.user]">{{todo.user}}</a></td>
         <td>{{todo.name}}</td>
+        <td><input type="checkbox" name="completed" value="{{todo.id}}"></td>
     </tr>
 </table>
 <br>
