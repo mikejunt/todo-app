@@ -6,10 +6,10 @@ import { Todo } from './interfaces/todo.interface';
 })
 export class TodomgrService {
   todolist: Array<Todo> = [
-    {user: "Mike", name: "Sleep", id: 1}, 
-    {user: "Mike", name: "Walk", id: 2 }, 
-    {user: "Cody", name: "Hit dingers", id: 3}, 
-    {user: "Fred", name: "Whatever", id: 4 }
+    {user: "Mike", name: "Sleep", id: 1, completed: false}, 
+    {user: "Mike", name: "Walk", id: 2, completed: false}, 
+    {user: "Cody", name: "Hit dingers", id: 3, completed: false}, 
+    {user: "Fred", name: "Whatever", id: 4, completed: false }
   ]
   nextid:number = 5;
 
@@ -19,7 +19,7 @@ export class TodomgrService {
     this.todolist.splice(idx,1)
   }
   addtask(user: string, task: string) { 
-    this.todolist.push({user: `${user}`, name: `${task}`, id: this.nextid})
+    this.todolist.push({user: `${user}`, name: `${task}`, id: this.nextid, completed: false})
     this.nextid++;
   }
   userfilter(username: string) {
