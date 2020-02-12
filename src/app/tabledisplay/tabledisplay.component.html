@@ -1,0 +1,10 @@
+<table>
+    <tr>
+        <th>User</th>
+        <th>Task</th>
+    </tr>
+    <tr *ngFor="let todo of todolist; index as i">
+        <td><a [routerLink]="['/user/'+todo.user]">{{todo.user}}</a></td>
+        <td>{{todo.name}}</td>
+    </tr>
+</table>

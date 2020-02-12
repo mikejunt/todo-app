@@ -2,3 +2,5 @@
 <div>Todos for</div>
 <div *ngFor="let todo of usertodos; index as i"><button (click)="removetask(todo.id)"
         id="{{todo.id}}">Complete</button><a [routerLink]="['/user/'+todo.user]">{{todo.user}}</a> - {{todo.name}}</div>
+
+<app-tabledisplay [todolist]="usertodos"></app-tabledisplay>

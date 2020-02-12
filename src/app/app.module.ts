@@ -6,12 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { TodosComponent } from './todos/todos.component';
+import { SearchfilterPipe } from './pipes/searchfilter.pipe';
+import { CompletedfilterPipe } from './pipes/completedfilter.pipe';
+import { TabledisplayComponent } from './tabledisplay/tabledisplay.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
-    TodosComponent
+    TodosComponent,
+    SearchfilterPipe,
+    CompletedfilterPipe,
+    TabledisplayComponent
   ],
   imports: [
     BrowserModule,
