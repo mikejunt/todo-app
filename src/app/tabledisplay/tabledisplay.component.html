@@ -3,14 +3,12 @@
         <th>User</th>
         <th>Task</th>
     </tr>
-    <tr *ngFor="let todo of todolist; index as i">
+    <tr *ngFor="let todo of todolist | searchfilter: searchtext; index as i">
         <td><a [routerLink]="['/user/'+todo.user]">{{todo.user}}</a></td>
         <td>{{todo.name}}</td>
     </tr>
 </table>
 <br>
 <label for="searchtext">Search:</label><input placeholder="Search todos" [(ngModel)]="searchtext">
-<button (click)="initSearch()">I SEARCH</button><label for="searchtype">TYPE PICKER:</label><select [(ngModel)]="searchtype"><option value="ID">ID</option>
-<option value="user">User</option><option value="name">Task</option></select>
 <br>
 <button (click)="markedComp()">Placeholder for Complete toggle</button>
