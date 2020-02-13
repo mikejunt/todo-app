@@ -26,7 +26,7 @@ export class TodomgrService {
     return this.todolist.filter(todo => todo["user"] === username)
   }
   get alltodos() {
-    return this.todolist
+    return [...this.todolist]
   }
 
 }

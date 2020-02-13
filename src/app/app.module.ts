@@ -9,6 +9,7 @@ import { TodosComponent } from './todos/todos.component';
 import { SearchfilterPipe } from './pipes/searchfilter.pipe';
 import { TabledisplayComponent } from './tabledisplay/tabledisplay.component';
 import { SortpipePipe } from './pipes/sortpipe.pipe';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SortpipePipe } from './pipes/sortpipe.pipe';
     TodosComponent,
     SearchfilterPipe,
     TabledisplayComponent,
-    SortpipePipe
+    SortpipePipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
