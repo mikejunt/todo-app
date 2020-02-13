@@ -14,7 +14,6 @@ export class TabledisplayComponent implements OnInit {
   @Output() deleteEvent = new EventEmitter<void>()
 
   constructor(private actr: ActivatedRoute) {
-    console.log(this.actr.snapshot.url[0].path)
     this.isUserRoute = this.actr.snapshot.url[0].path === 'user'
   }
   ngOnInit(): void {
