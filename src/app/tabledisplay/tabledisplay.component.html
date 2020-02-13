@@ -6,7 +6,7 @@
         <th (click)="sortNow('name')">Task</th>
         <th (click)="sortNow('completed')">Completed</th>
     </tr>
-    <tr *ngFor="let todo of todolist | searchfilter: searchtext; index as i">
+    <tr *ngFor="let todo of todolist | searchfilter: searchtext | sortpipe: sortfield; index as i">
         <td *ngIf="isUserRoute"><input type="checkbox" value="{{todo.id}}" name="todelete" [(ngModel)]="todo.deletion"></td>
         <td>{{todo.id}}</td>
         <td *ngIf="!isUserRoute"><a [routerLink]="['/user/'+todo.user]">{{todo.user}}</a></td>
