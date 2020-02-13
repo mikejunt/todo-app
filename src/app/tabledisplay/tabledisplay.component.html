@@ -1,15 +1,20 @@
 <table>
     <tr>
+        <th>Delete</th>
+        <th>ID</th>
         <th>User</th>
         <th>Task</th>
+        <th>Completed</th>
     </tr>
     <tr *ngFor="let todo of todolist | searchfilter: searchtext; index as i">
+        <td><input type="checkbox" value="{{todo.id}}" name="todelete"></td>
+        <td>{{this.id}}</td>
         <td><a [routerLink]="['/user/'+todo.user]">{{todo.user}}</a></td>
         <td>{{todo.name}}</td>
         <td><input type="checkbox" name="completed" value="{{todo.id}}"></td>
     </tr>
 </table>
 <br>
-<label for="searchtext">Search:</label><input placeholder="Search todos" [(ngModel)]="searchtext">
+<label for="searchtext">Search:</label><input placeholder="Filter Todos" [(ngModel)]="searchtext">
 <br>
 <button (click)="markedComp()">Placeholder for Complete toggle</button>
