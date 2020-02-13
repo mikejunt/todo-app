@@ -6,6 +6,7 @@ import { UserService } from '../user.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
   inputusername: string = ""
   inputpassword: string = ""
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   initLogin() {
     if (this.inputpassword.length > 0 && this.inputusername.length > 0) {
       this.user.login(this.inputusername, this.inputpassword)

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TodomgrService } from '../todomgr.service';
 import { ActivatedRoute } from '@angular/router';
 import { Todo } from '../interfaces/todo.interface';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-user',
@@ -12,9 +13,9 @@ export class UserComponent implements OnInit {
   usertodos: Array<Todo> = []
   username: string;
 
-  constructor(private todomgr: TodomgrService, private actr: ActivatedRoute) { }
+  constructor(private todomgr: TodomgrService, private actr: ActivatedRoute, private user: UserService) { }
 
-  logit() { console.log(this.usertodos) }
+  logout() { this.user.logout() }
   ngOnInit(): void {
     this.username = this.actr.snapshot.params.username;
     this.usertodos = this.todomgr.usertodos(this.username)

@@ -1,11 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Todo } from '../interfaces/todo.interface'
+
 @Component({
   selector: 'app-tabledisplay',
   templateUrl: './tabledisplay.component.html',
   styleUrls: ['./tabledisplay.component.scss']
 })
+
 export class TabledisplayComponent implements OnInit {
   searchtext: string = ""
   isUserRoute: boolean
@@ -18,7 +20,8 @@ export class TabledisplayComponent implements OnInit {
   }
   ngOnInit(): void {
   }
+  
   deleteTodos() { this.deleteEvent.emit() }
-  sortNow(sort) { this.sortfield = sort}
+  sortNow(sort) { this.sortfield = sort }
 
 }

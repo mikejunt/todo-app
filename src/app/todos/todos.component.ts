@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodomgrService } from '../todomgr.service';
 import { Todo } from '../interfaces/todo.interface';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-todos',
@@ -12,7 +13,7 @@ export class TodosComponent implements OnInit {
   userinput: string = ""
   nameinput: string = ""
 
-  constructor(private todomgr: TodomgrService) { this.todolist = todomgr.alltodos }
+  constructor(private todomgr: TodomgrService, private user: UserService) { this.todolist = todomgr.alltodos }
   newtask() {
     if (this.userinput.length > 0 && this.nameinput.length > 0) {
       this.todomgr.addtask(this.userinput, this.nameinput); 
@@ -23,6 +24,8 @@ export class TodosComponent implements OnInit {
     this.todolist.filter(t => t.deletion).forEach(td => this.todomgr.deltask(td.id));
     this.todolist = this.todomgr.alltodos;
   }
+
+  logout() {this.user.logout()}
 
   ngOnInit(): void {
   }

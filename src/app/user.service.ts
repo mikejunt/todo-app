@@ -4,10 +4,14 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
+
 export class UserService {
   isLoggedin: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+
+   }
+
   login(username: string, password: string) {
     this.isLoggedin = true;
     localStorage.setItem("user", `${username}`);
@@ -18,9 +22,9 @@ export class UserService {
     this.isLoggedin = false;
     localStorage.clear();
     this.router.navigate(['/login']);
-
   }
+
   get currentUser() {
-    return null
+    return localStorage.getItem('user')
   }
 }
