@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
 import { TodosComponent } from './todos/todos.component';
 import { SearchfilterPipe } from './pipes/searchfilter.pipe';
-import { CompletedfilterPipe } from './pipes/completedfilter.pipe';
 import { TabledisplayComponent } from './tabledisplay/tabledisplay.component';
 import { SortpipePipe } from './pipes/sortpipe.pipe';
 
@@ -17,7 +16,6 @@ import { SortpipePipe } from './pipes/sortpipe.pipe';
     UserComponent,
     TodosComponent,
     SearchfilterPipe,
-    CompletedfilterPipe,
     TabledisplayComponent,
     SortpipePipe
   ],
