@@ -1,6 +1,3 @@
-<div><a [routerLink]="['/todos']" routerLinkActive="active">Todos</a></div>
-<div>Todos for</div>
-<div *ngFor="let todo of usertodos; index as i"><button (click)="removetask(todo.id)"
-        id="{{todo.id}}">Complete</button><a [routerLink]="['/user/'+todo.user]">{{todo.user}}</a> - {{todo.name}}</div>
-
-<app-tabledisplay [todolist]="usertodos"></app-tabledisplay>
+<div><a [routerLink]="['/todos']" routerLinkActive="active">Back to all Todos</a></div>
+<div>Todos for {{username}}</div>
+<app-tabledisplay [todolist]="usertodos" (deleteEvent)="removetask()"></app-tabledisplay>

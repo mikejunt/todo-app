@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Todo } from '../interfaces/todo.interface'
 @Component({
   selector: 'app-tabledisplay',
@@ -8,17 +8,18 @@ import { Todo } from '../interfaces/todo.interface'
 })
 export class TabledisplayComponent implements OnInit {
   searchtext: string = ""
-  test = 5
   isUserRoute: boolean
+  sortfield: string = "id"
   @Input('todolist') todolist: Array<Todo>
-  @Output() complete = new EventEmitter<number>()
+  @Output() deleteEvent = new EventEmitter<void>()
 
-  constructor(private actr: ActivatedRouteSnapshot) {
-    this.isUserRoute = actr.url[0].path === 'user'
+  constructor(private actr: ActivatedRoute) {
+    console.log(this.actr.snapshot.url[0].path)
+    this.isUserRoute = this.actr.snapshot.url[0].path === 'user'
   }
   ngOnInit(): void {
   }
-  markedComp() { this.complete.emit(this.test) }
-  initSearch() { console.log(this.searchtext) }
+  deleteTodos() { this.deleteEvent.emit() }
+  sortNow(sort) { this.sortfield = sort}
 
 }

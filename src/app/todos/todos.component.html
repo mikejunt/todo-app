@@ -1,4 +1,4 @@
-<app-tabledisplay [todolist]="todolist" (complete)="completemark($event)"></app-tabledisplay>
+<app-tabledisplay [todolist]="todolist" (deleteEvent)="removetask()"></app-tabledisplay>
 <br>
 <button (click)="newtask()">PRESS ME TO ADD</button>
 <label for="userinput">User:</label><input placeholder="User" [(ngModel)]="userinput">

@@ -12,13 +12,15 @@ export class UserComponent implements OnInit {
   usertodos: Array<Todo> = []
   username: string;
 
-  constructor(private todomgr: TodomgrService, private actr: ActivatedRoute) {
-    this.username = actr.snapshot.params.username;
-    this.usertodos = todomgr.userfilter(this.username)
-   }
+  constructor(private todomgr: TodomgrService, private actr: ActivatedRoute) { }
 
-  logit() {console.log(this.usertodos)}
+  logit() { console.log(this.usertodos) }
   ngOnInit(): void {
+    this.username = this.actr.snapshot.params.username;
+    this.usertodos = this.todomgr.usertodos(this.username)
   }
-  removetask(id:number) {this.todomgr.deltask(id)}
+  removetask() {
+    this.usertodos.filter(t => t.deletion).forEach(td => this.todomgr.deltask(td.id));
+    this.usertodos = this.todomgr.usertodos(this.username);
+  }
 }
