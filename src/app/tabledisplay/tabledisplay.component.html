@@ -1,12 +1,14 @@
-<table>
-    <tr>
+<label for="searchtext">Search To Dos For:</label><input placeholder="Search Todos For.." [(ngModel)]="searchtext">
+
+<table class="table">
+    <tr class="text-center">
         <th *ngIf="isUserRoute">Delete</th>
         <th (click)="sortNow('id')">ID</th>
         <th *ngIf="!isUserRoute" (click)="sortNow('user')">User</th>
         <th (click)="sortNow('name')">Task</th>
         <th (click)="sortNow('completed')">Completed</th>
     </tr>
-    <tr *ngFor="let todo of todolist | searchfilter: searchtext | sortpipe: sortfield; index as i" [class.completed]="todo.completed" >
+    <tr class="text-center" *ngFor="let todo of todolist | searchfilter: searchtext | sortpipe: sortfield; index as i" [class.completed]="todo.completed" >
         <td *ngIf="isUserRoute"><input type="checkbox" value="{{todo.id}}" name="todelete" [(ngModel)]="todo.deletion"></td>
         <td>{{todo.id}}</td>
         <td *ngIf="!isUserRoute"><a [routerLink]="['/user/'+todo.user]">{{todo.user}}</a></td>
@@ -14,8 +16,6 @@
         <td><input type="checkbox" name="completed" value="{{todo.id}}" [(ngModel)]="todo.completed"></td>
     </tr>
 </table>
-<br>
-<label for="searchtext">Search:</label><input placeholder="Filter Todos" [(ngModel)]="searchtext">
-<br>
-<button *ngIf="isUserRoute" (click)="deleteTodos()">Emit Delete Event</button>
+
+<button class="btn btn-danger" *ngIf="isUserRoute" (click)="deleteTodos()">Emit Delete Event</button>
 
