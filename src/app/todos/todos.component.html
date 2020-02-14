@@ -1,10 +1,10 @@
-<button (click)="logout()">LOGOUT</button>
+<button class="float-right btn btn-warning" (click)="logout()">LOGOUT</button>
 
 
 <app-tabledisplay [todolist]="todolist" (deleteEvent)="removetask()"></app-tabledisplay>
-<br>
-<button (click)="newtask()">PRESS ME TO ADD</button>
+
+<div class="center-text container"><button class="btn btn-success" (click)="newtask()">PRESS ME TO ADD</button>
 <label for="userinput">User:</label><input placeholder="User" [(ngModel)]="userinput">
-<label for="nameinput">Task:</label><input placeholder="Task to add" [(ngModel)]="nameinput">
-<br>
+<label for="nameinput">Task:</label><input placeholder="Task to add" [(ngModel)]="nameinput"></div>
+
 

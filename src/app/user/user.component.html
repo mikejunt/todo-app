@@ -1,6 +1,6 @@
-<button (click)="logout()">LOGOUT</button>
+<button class="btn btn-warning float-right" (click)="logout()">LOGOUT</button>
 
 
 <div><a [routerLink]="['/todos']" routerLinkActive="active">Back to all Todos</a></div>
-<div>Todos for {{username}}</div>
+<div class="text-center">Todos for {{username}}</div>
 <app-tabledisplay [todolist]="usertodos" (deleteEvent)="removetask()"></app-tabledisplay>
