@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { TodomgrService } from './todomgr.service';
 import { BehaviorSubject } from 'rxjs';
 import { Todo } from './interfaces/todo.interface';
 import { map } from 'rxjs/operators'
@@ -31,6 +30,7 @@ addTodo(user: string, task: string) {
 delTodo(id: number) {
   let idx = this.todos.findIndex(todo => todo["id"] === id);
   this.todos.splice(idx,1);
+  this.todos = [...this.todos]
 }
 
   constructor() { }
