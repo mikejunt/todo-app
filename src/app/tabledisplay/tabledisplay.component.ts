@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Todo } from '../interfaces/todo.interface'
 import { TodoStoreService } from '../todo-store.service';
 
@@ -18,7 +18,7 @@ export class TabledisplayComponent implements OnInit {
   @Input('todolist') todolist: Array<Todo>
   @Output() deleteEvent = new EventEmitter<void>()
 
-  constructor(private actr: ActivatedRoute, private todomgr: TodoStoreService) {
+  constructor(private actr: ActivatedRoute, private todomgr: TodoStoreService, private router: Router) {
     this.isUserRoute = this.actr.snapshot.url[0].path === 'user';
     if (this.isUserRoute) {this.userinput = this.actr.snapshot.url[1].path}
   }

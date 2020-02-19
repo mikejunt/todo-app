@@ -17,20 +17,21 @@ export class UserGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
       let username = this.user.currentUser
-    if (this.user.isLoggedin)
-      if (state.url ==='/todos') {
-        return true
-      }
-      else if (next.params.username === username) {
-        return true
-      }
-      else {
-        this.router.navigate([`/user/${username}/`])
-        return false
-      }
-    else {
-      this.router.navigate(['/login'])
-    }
+    // if (this.user.isLoggedin)
+    //   if (state.url ==='/todos') {
+    //     return true
+    //   }
+    //   else if (next.params.username === username) {
+    //     return true
+    //   }
+    //   else {
+    //     this.router.navigate([`/user/${username}/`])
+    //     return false
+    //   }
+    // else {
+    //   this.router.navigate(['/login'])
+    // }
+    return true
   }
 
 }

@@ -14,7 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table'
-import { MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
+import { PopupComponent } from './popup/popup.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { MatInputModule } from '@angular/material/input'
     SearchfilterPipe,
     TabledisplayComponent,
     SortpipePipe,
-    LoginComponent
+    LoginComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
