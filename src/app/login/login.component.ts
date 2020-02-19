@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,17 +9,22 @@ import { UserService } from '../user.service';
 })
 
 export class LoginComponent implements OnInit {
-  inputusername: string = ""
-  inputpassword: string = ""
+  loginForm: FormGroup
 
-  constructor(private user: UserService) { }
+  constructor(private user: UserService, private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      username: ['', Validators.compose([Validators.required, Validators.maxLength(12), Validators.minLength(4)])],
+      password: ['', Validators.compose([Validators.required, Validators.maxLength(16), Validators.minLength(2)])]
+  
+    });
   }
   
-  initLogin() {
-    if (this.inputpassword.length > 0 && this.inputusername.length > 0) {
-      this.user.login(this.inputusername, this.inputpassword)
-    }
+  initLogin(e) {
+    e.preventDefault();
+    console.log(e)
+    if (this.loginForm.valid)
+    {this.user.login(this.loginForm.value.username, this.loginForm.value.password)}
   }
 }

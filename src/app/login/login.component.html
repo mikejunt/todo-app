@@ -1,3 +1,21 @@
-<div class="container"><label for="username">Username: </label><input type="text" class="form-control" placeholder="Username" [(ngModel)]="inputusername">
-<label for="password">Password: </label><input type="text" class="form-control" placeholder="Password" [(ngModel)]="inputpassword">
-<button (click)="initLogin()" mat-raised-button color="primary">CLICK ME</button></div>
+<div class="container">
+    <form role="form" (ngSubmit)="initLogin($event)" [formGroup]="loginForm">
+        <mat-form-field class="input">
+            <label for="username">Username: </label><input matInput formControlName="username" type="text"
+            placeholder="Username">
+            <mat-hint>Username must be between 4 and 12 characters</mat-hint>
+            <mat-error *ngIf="loginForm.controls.username.errors && (loginForm.controls.username.dirty || loginForm.controls.username.touched)">
+                Username doesn't meet requirements.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="input">
+            <label for="password">Password: </label><input matInput formControlName="password" type="text"
+            placeholder="Password">
+            <mat-hint>Password must be between 2 and 12 characters</mat-hint>
+            <mat-error *ngIf="loginForm.controls.password.errors && (loginForm.controls.password.dirty || loginForm.controls.password.touched)">
+                Password doesn't meet requirements.
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button [color]="loginForm.valid ? 'primary' : 'warn'" ngClass="{{loginForm.valid && loginForm.touched ? '' : 'disabled'}}">CLICK ME</button>
+    </form>
+</div>
