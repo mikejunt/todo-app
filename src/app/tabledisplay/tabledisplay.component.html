@@ -2,20 +2,26 @@
 
 <table class="table">
     <tr class="text-center">
-        <th *ngIf="isUserRoute">Delete</th>
         <th (click)="sortNow('id')">ID</th>
         <th *ngIf="!isUserRoute" (click)="sortNow('user')">User</th>
         <th (click)="sortNow('name')">Task</th>
         <th (click)="sortNow('completed')">Completed</th>
+        <th *ngIf="isUserRoute">Delete</th>
     </tr>
-    <tr class="text-center" *ngFor="let todo of todolist | searchfilter: searchtext | sortpipe: sortfield; index as i" [class.completed]="todo.completed" >
-        <td *ngIf="isUserRoute"><input type="checkbox" value="{{todo.id}}" name="todelete" [(ngModel)]="todo.deletion"></td>
+    <tr class="text-center" *ngFor="let todo of todolist | searchfilter: searchtext | sortpipe: sortfield; index as i"
+        [class.completed]="todo.completed">
         <td>{{todo.id}}</td>
         <td *ngIf="!isUserRoute"><a [routerLink]="['/user/'+todo.user]">{{todo.user}}</a></td>
         <td>{{todo.name}}</td>
         <td><input type="checkbox" name="completed" value="{{todo.id}}" [(ngModel)]="todo.completed"></td>
+        <td *ngIf="isUserRoute"><input type="checkbox" value="{{todo.id}}" name="todelete" [(ngModel)]="todo.deletion">
+        </td>
+    </tr>
+    <tr class="text-center">
+        <td>New</td>
+        <td *ngIf="!isUserRoute"><input placeholder="User" [(ngModel)]="userinput"></td>
+        <td><input placeholder="Task to add" [(ngModel)]="nameinput"></td>
+        <td><button class="btn btn-success" (click)="newtask()">Save</button></td>
+        <td *ngIf="isUserRoute"><button class="btn btn-danger" (click)="deleteTodos()">Delete</button></td>
     </tr>
 </table>
-
-<button class="btn btn-danger" *ngIf="isUserRoute" (click)="deleteTodos()">Emit Delete Event</button>
-
