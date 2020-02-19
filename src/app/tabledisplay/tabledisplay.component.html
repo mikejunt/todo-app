@@ -21,7 +21,7 @@
         <td>New</td>
         <td *ngIf="!isUserRoute"><input placeholder="User" [(ngModel)]="userinput"></td>
         <td><input placeholder="Task to add" [(ngModel)]="nameinput"></td>
-        <td><button class="btn btn-success" (click)="newtask()">Save</button></td>
-        <td *ngIf="isUserRoute"><button class="btn btn-danger" (click)="deleteTodos()">Delete</button></td>
+        <td><button mat-raised-button color="primary" (click)="newtask()">Save</button></td>
+        <td *ngIf="isUserRoute"><button mat-raised-button color="warn"(click)="deleteTodos()">Delete</button></td>
     </tr>
 </table>
