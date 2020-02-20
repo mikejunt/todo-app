@@ -10,7 +10,7 @@
     </tr>
     <tr class="text-center" *ngFor="let todo of todolist | searchfilter: searchtext | sortpipe: sortfield; index as i"
         [class.completed]="todo.completed">
-        <td><a [routerLink]="[{ outlets: { popup: ['edit'] } }]">{{todo.id}}</a></td>
+        <td><a [routerLink]="['', { outlets: { popup: ['edit/'+todo.id] } }]">{{todo.id}}</a></td>
         <td *ngIf="!isUserRoute"><a [routerLink]="['/user/'+todo.user]">{{todo.user}}</a></td>
         <td>{{todo.name}}</td>
         <td><input type="checkbox" name="completed" value="{{todo.id}}" [(ngModel)]="todo.completed"></td>

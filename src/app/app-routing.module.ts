@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'user/:username', component: UserComponent, canActivate: [UserGuard]},
   {path: 'todos', component: TodosComponent, canActivate: [UserGuard]},
   {path: 'login', component: LoginComponent},
-  {path: 'edit', component: PopupComponent, outlet: 'popup'},
+  {path: 'edit/:id', component: PopupComponent, outlet: 'popup'},
   {path: '', redirectTo: '/login', pathMatch: 'full'},
 ];
 
